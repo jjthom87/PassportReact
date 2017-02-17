@@ -22,9 +22,9 @@ export function loginUser(username, password){
 		}).then((response) => response.json())
 		.then((results) => {
 			try {
-				if(results === "successful"){
+				if(results != null){
 					browserHistory.push('/userhome');
-				} else if (results === "unsuccessful") {
+				} else {
 					throw alert('Incorrect Login Credentials')
 				}
 			}

@@ -80,14 +80,20 @@ passport.use('local', new LocalStrategy(
     }
 ));
 
-router.post('/api/users/login', 
-  passport.authenticate('local'), 
+router.post('/api/users/login',
+  passport.authenticate('local'),
   function(req,res){
-    if(req.body){
-      res.json('successful')
-    } else {
-      res.json('unsuccessful')
-    }
+      try {
+        if(req.body != null){
+          return res.status(200).json({
+            success: true,
+            message: 'signed in'
+          });
+        } 
+      }
+      catch(err){
+        console.log(err)
+      }
 });
 
 router.get('/api/users/logout', function (req, res) {
