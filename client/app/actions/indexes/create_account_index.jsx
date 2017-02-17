@@ -13,7 +13,9 @@ export function createNewAccount(name, username, password, confirmPassword){
 		fetch('/api/users/create', {
 			method: 'post',
 			body: JSON.stringify(newUser),
-			headers: {'content-type': 'application/json'}
+			headers: {
+				'content-type': 'application/json'
+			}
 		}).then((response) => response.json())
 		.then((results) => {
 			try {

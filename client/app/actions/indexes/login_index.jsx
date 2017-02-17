@@ -14,24 +14,18 @@ export function loginUser(username, password){
 			method: 'post',
 			body: JSON.stringify(loginUser),
 			headers: {
-				'Authorization': 'Basic'+btoa('username:password'),
 				'content-type': 'application/json',
-				'accept': 'application/json'
 			},
 			credentials: 'include'
 		}).then((response) => response.json())
 		.then((results) => {
-			try {
-				if(results != null){
-					browserHistory.push('/userhome');
-				} else {
-					throw alert('Incorrect Login Credentials')
-				}
+			if(results.message === "authentication failed"){
+				throw alert("Authentication Failed");
+				browserHistory.push('/login')
 			}
-			catch(err){
-				alert(err)
+			if(results.success = true){
+				browserHistory.push('/userhome');
 			}
 		});
-     	return null;
 	}
 };

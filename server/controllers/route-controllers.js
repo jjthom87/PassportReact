@@ -80,25 +80,26 @@ passport.use('local', new LocalStrategy(
     }
 ));
 
-router.post('/api/users/login',
-  passport.authenticate('local'),
-  function(req,res){
-      try {
-        if(req.body != null){
-          return res.status(200).json({
-            success: true,
-            message: 'signed in'
-          });
-        } 
+router.post('/api/users/login', function(req,res,next){
+  passport.authenticate('local', function(err, user, info){
+    if (err) {
+      return next(err);
+    }
+    if (!user) {
+      return res.status(401).json({ success : false, message : 'authentication failed' });
+    }
+    req.login(user, function(err){
+      if(err){
+        return next(err);
       }
-      catch(err){
-        console.log(err)
-      }
+      return res.status(200).json({ success : true, message : 'authentication succeeded' });        
+    });
+  })(req, res, next);
 });
 
 router.get('/api/users/logout', function (req, res) {
-  req.session.destroy(function (out) {
-      res.json(out)
+  req.session.destroy(function(out){
+    res.json(out)
   });
 });
 

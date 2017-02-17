@@ -12,7 +12,6 @@ export function logoutUser(){
 		fetch('/api/users/logout', {
 			headers: {
 				'content-type': 'application/json',
-				'accept': 'application/json'
 			},
 			credentials: 'include'
 		}).then((results) => {
