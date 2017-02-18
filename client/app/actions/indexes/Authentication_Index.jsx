@@ -56,7 +56,7 @@ export function loginUser(username, password){
 				browserHistory.push('/login')
 			}
 			if(results.success = true){
-				browserHistory.push('/odds');
+				browserHistory.push('/userhome');
 			}
 		});
 	}

@@ -112,10 +112,6 @@ router.get('/api/userhome', function(req, res){
     }
 });
 
-router.get('/api/odds', function(req,res){
-  res.json(req.body)
-})
-
 router.get('*', (req,res) => {
   res.sendFile(path.join(__dirname, './../../client/public/index.html'));
 })
