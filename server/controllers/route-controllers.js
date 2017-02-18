@@ -1,14 +1,11 @@
 // DEPENDENCIES
 var express = require('express');
 var path = require('path');
-var _ = require('lodash');
 
 var router = express.Router();
 
 var models = require('../models');
 var modelController = require('./model-controllers.js');
-
-var middleware = require('./../middleware/middleware.js')();
 
 var cookieParser = require('cookie-parser');
 var bcrypt = require('bcrypt-nodejs');
@@ -46,7 +43,7 @@ router.post('/api/users/create', function(req,res){
     if(!req.body.confirmPassword){
       return reject();
     }
-    if(req.body.username.length < 5 || req.body.username.length > 12){
+    if(req.body.username.length < 6 || req.body.username.length > 12){
       return reject();
     }
     modelController.userCreate(

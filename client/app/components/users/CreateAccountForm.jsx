@@ -26,11 +26,11 @@ export var CreateAccountForm = React.createClass({
 			alert('Please Enter Username');
 		}
 
-		if(username.length > 5 && username.length < 12){
+		if(username.length > 6 && username.length < 12){
 			this.refs.username.value = '';
     	} else {
     		this.refs.username.value = '';
-      		alert('Username must be between 5 and 12 characters');
+      		alert('Username must be between 6 and 12 characters');
     	}
 
 		if (password.length > 7) {
