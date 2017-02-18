@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import LogoutForm from './../users/LogoutForm';
 import { browserHistory } from 'react-router';
+
+import LogoutForm from './../user_forms/LogoutForm';
 
 export default class MainNavBar extends Component {
     render() {

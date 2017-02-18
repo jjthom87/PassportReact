@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import LoginForm from './../users/LoginForm';
 import { browserHistory } from 'react-router';
+
+import LoginForm from './../user_forms/LoginForm';
 
 export default class LoginPage extends Component {
 	render() {

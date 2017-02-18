@@ -1,14 +1,15 @@
-import { createAccountReducer } from '../reducers/create_account_reducer'; 
-import { loginReducer } from '../reducers/login_reducer'; 
-import { logoutReducer } from '../reducers/logout_reducer'
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import reduxThunk from 'redux-thunk';
 
+import * as auth_reducers from './../reducers/Authentication_Reducers'; 
+import * as user_reducers from './../reducers/User_Home_Reducers';
+
 export var configure = (initialState = {}) => {
 	var reducers = combineReducers({
-		createAccount: createAccountReducer,
-		login: loginReducer,
-		logout: logoutReducer
+		createAccount: auth_reducers.createAccountReducer,
+		login: auth_reducers.loginReducer,
+		logout: auth_reducers.logoutReducer,
+		userHome: user_reducers.userHomeReducer
 	});
 
 	const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);

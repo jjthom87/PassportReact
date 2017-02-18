@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../../actions/indexes/login_index';
 
 export var LoginForm = React.createClass({
 	onLoginSubmit: function(e){

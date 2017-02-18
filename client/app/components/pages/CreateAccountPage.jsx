@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import CreateAccountForm from './../users/CreateAccountForm';
+
+import CreateAccountForm from './../user_forms/CreateAccountForm';
 import LandingNavBar from './../navs/LandingNavBar';
 
 export default class CreateAccountPage extends Component {

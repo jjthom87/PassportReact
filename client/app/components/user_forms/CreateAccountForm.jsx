@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../../actions/indexes/create_account_index.jsx';
+
+import * as actions from '../../actions/indexes/Authentication_Index';
 
 export var CreateAccountForm = React.createClass({
 	onCreateUser: function(e){
@@ -26,7 +27,7 @@ export var CreateAccountForm = React.createClass({
 			alert('Please Enter Username');
 		}
 
-		if(username.length > 6 && username.length < 12){
+		if(username.length > 5 && username.length < 12){
 			this.refs.username.value = '';
     	} else {
     		this.refs.username.value = '';
