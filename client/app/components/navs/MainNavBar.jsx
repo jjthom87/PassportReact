@@ -6,17 +6,16 @@ import LogoutForm from './../user_forms/LogoutForm';
 export default class MainNavBar extends Component {
     render() {
         return (
-            <header>
-                <nav className="navbar navbar-default navbar-fixed-top clearfix" role="navigation" id="mainNav1">
-					<div className="container">
-						<div className="collapse navbar-collapse main-nav">
-							<ul className="nav navbar-nav navbar-right" id="mainNavli">
-                                <li className="landNavitem"><LogoutForm/></li>
-							</ul>
-						</div>
-					</div>
-				</nav>
-            </header>
+            <div className="top-bar">
+                <div className="top-bar-left">
+                    <ul className="dropdown menu" data-dropdown-menu>
+                        <li className="menu-text">JobAppTrack</li>
+                    </ul>
+                </div>
+                <div className="top-bar-right">
+                    <LogoutForm/>
+                </div>
+            </div>
         )
     }
 }

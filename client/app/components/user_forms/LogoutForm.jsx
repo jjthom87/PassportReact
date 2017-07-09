@@ -15,7 +15,7 @@ export var LogoutForm = React.createClass({
 			<div className="row">
 				<div className="col-md-1">
 					<form onSubmit={this.onFormSubmit}>
-						<button className="btn-danger">Logout</button>
+						<button className="button alert">Logout</button>
 					</form>
 				</div>
 			</div>
