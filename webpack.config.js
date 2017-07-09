@@ -3,11 +3,18 @@ var path = require('path');
 
 module.exports = {
 	entry: [
+		'script!jquery/dist/jquery.min.js',
+		'script!foundation-sites/dist/js/foundation.min.js',
 		'./client/app/app.jsx'
 	],
 	externals: {
+		jquery: 'jQuery'
 	},
 	plugins: [
+		new webpack.ProvidePlugin({
+			'$': 'jquery',
+			'jQuery': 'jquery'
+		})
 	],
 	output: {
 		path: __dirname,
@@ -15,7 +22,14 @@ module.exports = {
 	},
 	resolve: {
 		root: __dirname,
-		extensions: ['', '.js', '.jsx']
+		extensions: ['', '.js', '.jsx'],
+		alias: {
+			app: 'client/app',
+			applicationStyles: 'client/app/styles/app.scss',
+			actions: 'client/app/actions/actions.jsx',
+			reducers: 'client/app/reducers/reducers.jsx',
+			configureStore: 'client/app/store/configureStore.jsx'
+		},
 	},
 	module: {
 		loaders: [
@@ -31,6 +45,7 @@ module.exports = {
 	},
 	sassLoader: {
 		includePaths: [
+			path.resolve(__dirname, './node_modules/foundation-sites/scss')
 		]
 	},
 	devtool: 'inline-source-map'

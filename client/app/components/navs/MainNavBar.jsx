@@ -9,7 +9,7 @@ export default class MainNavBar extends Component {
             <header>
                 <nav className="navbar navbar-default navbar-fixed-top clearfix" role="navigation" id="mainNav1">
 					<div className="container">
-						<div className="collapse navbar-collapse main-nav" id="bubo-main-nav">
+						<div className="collapse navbar-collapse main-nav">
 							<ul className="nav navbar-nav navbar-right" id="mainNavli">
                                 <li className="landNavitem"><LogoutForm/></li>
 							</ul>

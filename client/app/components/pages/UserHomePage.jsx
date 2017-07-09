@@ -15,7 +15,6 @@ export var UserHomePage = React.createClass({
     	return (
       		<div>
       			<MainNavBar/>
-      			<Link to="/odds">Odds Page</Link>
 	      		<h1 className="text-center" id="pageTitle">Hello {this.props.userHome.user}, Welcome to JobTrackApp</h1>
       		</div>
 		);
