@@ -26,20 +26,25 @@ export var LoginForm = React.createClass({
 	},
 	render: function() {
 		return (
-			<div>
-				<div id="loginForm">
+			<div className="grid-x">
+				<div className="small-4 cell">
+				</div>
+				<div className="small-4 cell">
 					<form onSubmit={this.onLoginSubmit}>
-						<h1 id="loginText"> Login </h1>
-						<div id="submitButton">
-							<span className="glyphicon glyphicon-user"><input type="text" ref="username" placeholder="Enter Username"/></span>
-						</div>
-						<div id="submitButton">
-							<span className="glyphicon glyphicon-lock"><input type="password" ref="password" placeholder="Enter Password"/></span>
-						</div>
-						<div id="submitButton">
-							<input className="btn btn-default" type="submit" value="Login"/>
+						<label> 
+							Login
+							<input type="text" ref="username" placeholder="Enter Username"/>
+						</label>
+						<label>
+							Password
+							<input type="password" ref="password" placeholder="Enter Password"/>
+						</label>
+						<div className="text-center">
+							<input className="button success expanded" type="submit" value="Submit"/>
 						</div>
 					</form>
+				</div>
+				<div className="small-4 cell">
 				</div>
 			</div>
 		);

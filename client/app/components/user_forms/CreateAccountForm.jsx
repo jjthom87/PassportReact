@@ -57,30 +57,33 @@ export var CreateAccountForm = React.createClass({
 	},
 	render: function() {
 		return (
-			<div>
-				<div id="accountForm">
+			<div className="grid-x">
+				<div className="small-4 cell">
+				</div>
+				<div className="small-4 cell">
 					<form onSubmit={this.onCreateUser}>
-						<div>
-							<h1 id="loginText">Create Account</h1>
-						</div>
-						<div id="submitButton">
-							<div>
-								<span className="glyphicon glyphicon-sunglasses"><input type="text" ref="name" placeholder="Enter Name/Nickname"/></span>
+							<label>
+								Name/Nickname
+								<input type="text" ref="name" placeholder="Enter Name/Nickname"/>
+							</label>
+							<label>
+								Username
+								<input type="text" ref="username" placeholder="Enter Username"/>
+							</label>
+							<label>
+								Password
+								<input type="password" ref="password" placeholder="Enter Password"/>
+							</label>
+							<label>
+								Confirm Password
+								<input type="password" ref="confirmPassword" placeholder="Confirm Password"/>
+							</label>
+							<div className="text-center">
+								<input className="button success expanded" type="submit" value="Submit"/>
 							</div>
-							<div>
-								<span className="glyphicon glyphicon-user"><input type="text" ref="username" placeholder="Enter Username"/></span>
-							</div>
-							<div>
-								<span className="glyphicon glyphicon-lock"><input type="password" ref="password" placeholder="Enter Password"/></span>
-							</div>
-							<div>
-								<span className="glyphicon glyphicon-lock"><input type="password" ref="confirmPassword" placeholder="Confirm Password"/></span>
-							</div>
-							<div id="submitButton">
-								<input className="btn btn-default" type="submit" />
-							</div>
-						</div>
 					</form>
+				</div>
+				<div className="small-4 cell">
 				</div>
 			</div>
 		);

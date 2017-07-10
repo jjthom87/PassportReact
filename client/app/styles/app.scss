@@ -4,7 +4,9 @@
 @import "base/foundation-settings";
 @import "foundation";
 @include foundation-everything;
+@include foundation-xy-grid-classes;
 
 //Components
-@import "components/userHomePage";
+@import "components/user-home-page";
+@import "components/login-page";
 

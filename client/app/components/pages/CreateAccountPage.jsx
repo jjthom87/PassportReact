@@ -1,21 +1,17 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 import CreateAccountForm from './../user_forms/CreateAccountForm';
-import LandingNavBar from './../navs/LandingNavBar';
+import CreateAccountNavBar from './../navs/CreateAccountNavBar';
 
 export default class CreateAccountPage extends Component {
 	render() {
 		return (
 			<div>
-				<LandingNavBar/>
-				<div className = "row">
-					<div className="column small-centered small-11 medium-6 large-5 regdiv">
-						<div className="container" id="regdiv">
-							<CreateAccountForm/>
-							<p className="animated fadeInDown" id="loginText">Already have an account? Please login</p>
-						</div>
-					</div>
-				</div>
+				<CreateAccountNavBar/>
+				<h1 className="page-title text-center">Create an Account</h1>
+				<CreateAccountForm/>
+				<p className="text-center">Already have an account? Please <Link to="/login">login</Link></p>
 			</div>
 		);
 	}
