@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import * as actions from './../../actions/indexes/User_Home_Index';
 
 import MainNavBar from './../navs/MainNavBar';
+import CreateRecordForm from './../app_forms/CreateRecordForm'
 
 export var UserHomePage = React.createClass({
   	componentWillMount: function(){
@@ -15,7 +16,8 @@ export var UserHomePage = React.createClass({
     	return (
       		<div>
       			<MainNavBar/>
-	      		<h1 className="text-center page-title">Hello {this.props.userHome.user}, Welcome to JobTrackApp</h1>
+	      		<h1 className="text-center page-title">{this.props.userHome.user}'s Home Page</h1>
+	      		<CreateRecordForm/>
       		</div>
 		);
 	}

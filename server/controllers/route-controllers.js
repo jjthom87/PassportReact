@@ -112,6 +112,20 @@ router.get('/api/userhome', function(req, res){
     }
 });
 
+router.post('/api/record/create', function(req,res){
+    modelController.recordCreate(
+      req.body.companyName, 
+      req.body.position, 
+      req.body.dateApplied, 
+      req.body.replied, 
+      req.body.nextEvent, 
+      req.body.notes, 
+      req.body.resumeSubmitted,
+    function(success){
+      res.json(success);
+    });
+});
+
 router.get('*', (req,res) => {
   res.sendFile(path.join(__dirname, './../../client/public/index.html'));
 })

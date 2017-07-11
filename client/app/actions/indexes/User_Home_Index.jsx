@@ -24,3 +24,27 @@ export function userHome(){
 		});
 	}
 };
+
+export function createRecordForm(companyName, position, dateApplied, replied, nextEvent, notes, resumeSubmitted){
+	return { type: types.CREATE_RECORD, companyName, position, dateApplied, replied, nextEvent, notes, resumeSubmitted }
+}
+
+export function createNewRecord(companyName, position, dateApplied, replied, nextEvent, notes, resumeSubmitted){
+    return function(dispatch){
+		dispatch(createRecordForm(companyName, position, dateApplied, replied, nextEvent, notes, resumeSubmitted));
+		const newRecord = {companyName, position, dateApplied, replied, nextEvent, notes, resumeSubmitted };
+		fetch('/api/record/create', {
+			method: 'post',
+			body: JSON.stringify(newRecord),
+			headers: {
+				'content-type': 'application/json'
+			}
+		}).then((response) => response.json())
+		.then((results) => {
+			console.log(results);
+		});
+	};
+};
+
+
+

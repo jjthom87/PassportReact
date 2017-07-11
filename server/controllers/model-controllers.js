@@ -19,6 +19,29 @@ var modelController = {
 			}).catch(function(err){
 				cb(err);
 			});
+  	},
+  	recordCreate: function(companyName, position, dateApplied, replied, nextEvent, notes, resumeSubmitted, cb){
+  		var ifReplied = false;
+  		var ifResumeSubmitted = false;
+  		if(replied === "Yes"){
+  			ifReplied = true;
+  		}
+  		if(resumeSubmitted === "Yes"){
+  			ifResumeSubmitted = true 
+  		}
+  		models.Application.create({
+  			companyName: companyName,
+  			position: position,
+  			dateApplied: dateApplied,
+  			replied: ifReplied,
+  			nextEvent: nextEvent,
+  			notes: notes,
+  			resumeSubmitted: ifResumeSubmitted
+  		}).then(function(success) {
+	      	cb(success);
+		}).catch(function(err){
+			 cb(err);
+		});
   	}
 }
 
