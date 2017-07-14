@@ -114,6 +114,7 @@ router.get('/api/userhome', function(req, res){
 
 router.post('/api/record/create', function(req,res){
     modelController.recordCreate(
+      req.user.id,
       req.body.companyName, 
       req.body.position, 
       req.body.dateApplied, 

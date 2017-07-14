@@ -3,25 +3,22 @@ import { browserHistory } from 'react-router';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
-import * as actions from './../../actions/indexes/User_Home_Index';
-
 import MainNavBar from './../navs/MainNavBar';
-import CreateRecordForm from './../app_forms/CreateRecordForm'
+import CreateRecordForm from './../app_forms/CreateRecordForm';
+import ApplicationList from './../applications/ApplicationList';
 
-export var UserHomePage = React.createClass({
-  	componentWillMount: function(){
-  		this.props.dispatch(actions.userHome())
-	},
+var UserHomePage = React.createClass({
 	render: function() {
     	return (
       		<div>
       			<MainNavBar/>
-	      		<h1 className="text-center page-title">{this.props.userHome.user}'s Home Page</h1>
 	      		<CreateRecordForm/>
+	      		<ApplicationList/>
       		</div>
 		);
 	}
 });
+
 
 export default connect(
 	(state) => {

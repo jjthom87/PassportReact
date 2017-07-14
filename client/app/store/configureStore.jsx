@@ -4,12 +4,14 @@ import reduxThunk from 'redux-thunk';
 import * as auth_reducers from './../reducers/Authentication_Reducers'; 
 import * as user_reducers from './../reducers/User_Home_Reducers';
 
+// import reducers from './../reducers/User_Home_Reducers';
+
 export var configure = (initialState = {}) => {
 	var reducers = combineReducers({
 		createAccount: auth_reducers.createAccountReducer,
 		login: auth_reducers.loginReducer,
 		logout: auth_reducers.logoutReducer,
-		userHome: user_reducers.userHomeReducer
+		user: user_reducers.userHomeReducer
 	});
 
 	const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
@@ -17,3 +19,29 @@ export var configure = (initialState = {}) => {
 
 	return store;
 }
+
+// export default function configureStore(initialState) {
+// 	var reducers = combineReducers({
+// 		createAccount: auth_reducers.createAccountReducer,
+// 		login: auth_reducers.loginReducer,
+// 		logout: auth_reducers.logoutReducer,
+// 		userHome: user_reducers.userHomeReducer,
+//  		applications: user_reducers.applications
+
+// 	});
+//     return createStore(
+//         reducers,
+//         initialState,
+//         applyMiddleware(reduxThunk)
+//     );
+// }
+
+// const reducers = combineReducers({
+// 	createAccount: auth_reducers.createAccountReducer,
+// 	login: auth_reducers.loginReducer,
+// 	logout: auth_reducers.logoutReducer,
+// 	userHome: user_reducers.userHomeReducer,
+// 	applications: user_reducers.applications
+// });
+
+// export default reducers;

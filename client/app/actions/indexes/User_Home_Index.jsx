@@ -15,8 +15,9 @@ export function userHome(){
 		.then((results) => {
 			if(results != 401){
 				dispatch({
-					type: types.USER_HOME,
-					user: results.name
+					type: 'user_home',
+					applications: results.applications,
+					user: results.user
 				})
 			} else {
 				browserHistory.push('/');
@@ -38,10 +39,10 @@ export function createNewRecord(companyName, position, dateApplied, replied, nex
 			body: JSON.stringify(newRecord),
 			headers: {
 				'content-type': 'application/json'
-			}
+			},
+			credentials: 'include'
 		}).then((response) => response.json())
 		.then((results) => {
-			console.log(results);
 		});
 	};
 };

@@ -1,13 +1,10 @@
-import React, { Component, cloneElement } from 'react';
+import React, { Component } from 'react';
 
-export default class Application extends React.Component {
+export default class Application extends Component {
 	render() {
 		return (
-			<div className="Application">
-				{
-					cloneElement(this.props.children, {
-				  })
-				}
+			<div>
+				{this.props.children}
 			</div>
 		);
 	}
