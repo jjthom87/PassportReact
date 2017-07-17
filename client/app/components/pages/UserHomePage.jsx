@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { browserHistory } from 'react-router';
-import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
 import MainNavBar from './../navs/MainNavBar';

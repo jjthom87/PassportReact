@@ -112,6 +112,16 @@ router.get('/api/userhome', function(req, res){
     }
 });
 
+router.get('/api/application/:id', function(req,res){
+  if(req.session.passport != undefined){
+    models.Application.findOne({where: {id: req.params.id}}).then(function(app){
+        res.json(app);
+    });
+  } else {
+      res.json(401)
+  }
+})
+
 router.post('/api/record/create', function(req,res){
     modelController.recordCreate(
       req.user.id,

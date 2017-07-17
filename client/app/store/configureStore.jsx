@@ -19,29 +19,3 @@ export var configure = (initialState = {}) => {
 
 	return store;
 }
-
-// export default function configureStore(initialState) {
-// 	var reducers = combineReducers({
-// 		createAccount: auth_reducers.createAccountReducer,
-// 		login: auth_reducers.loginReducer,
-// 		logout: auth_reducers.logoutReducer,
-// 		userHome: user_reducers.userHomeReducer,
-//  		applications: user_reducers.applications
-
-// 	});
-//     return createStore(
-//         reducers,
-//         initialState,
-//         applyMiddleware(reduxThunk)
-//     );
-// }
-
-// const reducers = combineReducers({
-// 	createAccount: auth_reducers.createAccountReducer,
-// 	login: auth_reducers.loginReducer,
-// 	logout: auth_reducers.logoutReducer,
-// 	userHome: user_reducers.userHomeReducer,
-// 	applications: user_reducers.applications
-// });
-
-// export default reducers;

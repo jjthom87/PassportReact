@@ -15,13 +15,31 @@ export function userHome(){
 		.then((results) => {
 			if(results != 401){
 				dispatch({
-					type: 'user_home',
+					type: types.USER_HOME,
 					applications: results.applications,
 					user: results.user
 				})
 			} else {
 				browserHistory.push('/');
 			}
+		});
+	}
+};
+
+export function userHomeApplication(id){
+     return function(dispatch){
+		fetch(`/api/application/`+ id, {
+		headers: {
+            'content-type': 'application/json',
+            'accept': 'application/json'
+        },
+        credentials: 'include'
+		}).then((response) => response.json())
+		.then((results) => {
+			dispatch({
+				type: types.USER_APPLICATION,
+				application: results
+			})
 		});
 	}
 };

@@ -4,39 +4,35 @@ import { connect } from 'react-redux';
 import * as actions from './../../actions/indexes/User_Home_Index';
 import ApplicationLinkItem from './../applications/ApplicationLinkItem';
 
-class ApplicationList extends Component{
+class ApplicationList extends Component {
     componentWillMount(){
-        this.props.dispatch(actions.userHome())
+        this.props.userHomeData()
     }
     render() {
-        console.log(this.props)
         const { user } = this.props;
-        var renderApplications = () => {
-            return user.applications.map((application, index) => {
-                return (
-                    <ApplicationLinkItem
-                        company={application.companyName}
-                        position={application.position}
-                        id={application.id}
-                        key={index}
-                    />
-                );
-            });
+        if(user.applications){
+            return (
+                <div>
+                    <p>Applications</p>
+                    {
+                        user.applications.map((application, index) => {
+                            return (
+                                <ApplicationLinkItem
+                                    company={application.companyName}
+                                    position={application.position}
+                                    id={application.id}
+                                    key={index}
+                                />
+                            )
+                        })
+                    }
+                </div>
+            )
+        } else {
+            return (
+                <p>No Applications</p>
+            );
         }
-        var noApplications = () => {
-            if (user.applications.length == 0){
-                return (
-                    <p>No Applications</p>
-                );
-            }
-        }
-        return (
-            <div>
-                <p>Applications</p>
-                {noApplications()}
-                {renderApplications()}
-            </div>
-        );
     } 
 };
 
@@ -47,4 +43,10 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps)(ApplicationList);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        userHomeData: () => dispatch(actions.userHome())
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ApplicationList);

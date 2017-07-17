@@ -9,6 +9,7 @@ import HomePage from "./components/pages/HomePage";
 import CreateAccountPage from './components/pages/CreateAccountPage';
 import LoginPage from './components/pages/LoginPage';
 import UserHomePage from './components/pages/UserHomePage';
+import ApplicationPage from './components/pages/ApplicationPage';
 
 // COMPONENT ROUTES============================================================
 export default (
@@ -17,5 +18,6 @@ export default (
         <Route path="/register" component={CreateAccountPage}/>
         <Route path="/login" component={LoginPage}/>
         <Route path="/userhome" component={UserHomePage}/>
+        <Route path="/application/:id" component={ApplicationPage}/>
     </Route>
 );

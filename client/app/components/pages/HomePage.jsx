@@ -8,7 +8,7 @@ export default class HomePage extends Component {
       		<div>
       			<LandingNavBar/>
       			<div className="text-center">
-		      		<h1 class="page-title">Welcome to JobTrackApp</h1>
+		      		<h1 className="page-title">Welcome to JobTrackApp</h1>
 		      		<h3>Your One Stop Shop for storing job applications</h3>
 		      	</div>
       		</div>
