@@ -44,14 +44,39 @@ export function userHomeApplication(id){
 	}
 };
 
+export function userApplications(){
+	return function(dispatch){
+		fetch('/api/applications', {
+		headers: {
+            'content-type': 'application/json',
+            'accept': 'application/json'
+        },
+        credentials: 'include'
+		}).then((response) => response.json())
+		.then((results) => {
+			dispatch({
+				type: types.USER_APPLICATIONS,
+				applications: results.applications
+			})
+		});
+	}
+}
+
 export function createRecordForm(companyName, position, dateApplied, replied, nextEvent, notes, resumeSubmitted){
 	return { type: types.CREATE_RECORD, companyName, position, dateApplied, replied, nextEvent, notes, resumeSubmitted }
 }
 
-export function createNewRecord(companyName, position, dateApplied, replied, nextEvent, notes, resumeSubmitted){
-    return function(dispatch){
-		dispatch(createRecordForm(companyName, position, dateApplied, replied, nextEvent, notes, resumeSubmitted));
-		const newRecord = {companyName, position, dateApplied, replied, nextEvent, notes, resumeSubmitted };
+export function createNewRecord(creds){
+    return function(dispatch, getState){
+		const newRecord = {
+			companyName: creds.companyName, 
+			position: creds.position, 
+			dateApplied: creds.dateApplied, 
+			replied: creds.replied, 
+			nextEvent: creds.nextEvent, 
+			notes: creds.notes, 
+			resumeSubmitted: creds.resumeSubmitted
+		};
 		fetch('/api/record/create', {
 			method: 'post',
 			body: JSON.stringify(newRecord),
@@ -60,7 +85,11 @@ export function createNewRecord(companyName, position, dateApplied, replied, nex
 			},
 			credentials: 'include'
 		}).then((response) => response.json())
-		.then((results) => {
+		.then((result) => {
+			dispatch({
+				type: types.UPDATE_USER_DATA,
+				createdApplication: result
+			})
 		});
 	};
 };

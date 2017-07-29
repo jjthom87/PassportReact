@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import MainNavBar from './../navs/MainNavBar';
+import ApplicationPageNavBar from './../navs/ApplicationPageNavBar';
 import * as actions from './../../actions/indexes/User_Home_Index';
 
 class ApplicationPage extends Component {
@@ -9,12 +9,11 @@ class ApplicationPage extends Component {
   		this.props.userApplicationData(this.props.params.id);
 	}
 	render() {
-		console.log(this.props.application)
 		if(this.props.application != undefined){
 	    	return (
 	      		<div>
-	      			<MainNavBar/>
-	      			<div>
+	      			<ApplicationPageNavBar/>
+	      			<div className="page-title text-center">
 	      				<p>Company: {this.props.application.companyName}</p>
 	      			</div>
 	      		</div>

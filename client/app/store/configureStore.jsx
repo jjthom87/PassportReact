@@ -4,14 +4,11 @@ import reduxThunk from 'redux-thunk';
 import * as auth_reducers from './../reducers/Authentication_Reducers'; 
 import * as user_reducers from './../reducers/User_Home_Reducers';
 
-// import reducers from './../reducers/User_Home_Reducers';
-
 export var configure = (initialState = {}) => {
 	var reducers = combineReducers({
-		createAccount: auth_reducers.createAccountReducer,
-		login: auth_reducers.loginReducer,
-		logout: auth_reducers.logoutReducer,
-		user: user_reducers.userHomeReducer
+		auth: auth_reducers.authenticationReducer,
+		user: user_reducers.userHomeReducer,
+		applications: user_reducers.userApplicationReducer
 	});
 
 	const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);

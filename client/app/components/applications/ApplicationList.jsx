@@ -9,13 +9,13 @@ class ApplicationList extends Component {
         this.props.userHomeData()
     }
     render() {
-        const { user } = this.props;
-        if(user.applications){
+        const { applications } = this.props;
+        if(applications){
             return (
                 <div>
                     <p>Applications</p>
                     {
-                        user.applications.map((application, index) => {
+                        applications.map((application, index) => {
                             return (
                                 <ApplicationLinkItem
                                     company={application.companyName}
