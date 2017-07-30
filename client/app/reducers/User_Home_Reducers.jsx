@@ -18,12 +18,12 @@ export var userApplicationReducer = (state = [], action) => {
 			return [
 			...state,
 			...action.applications
-			];
+			]
 		case types.UPDATE_USER_DATA:
 			return [
-				...state, 
-				action.createdApplication 
-				]
+			...state,
+			action.createdApplication
+			];
 		default:
 			return state;
 	}

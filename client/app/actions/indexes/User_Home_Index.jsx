@@ -28,7 +28,7 @@ export function userHome(){
 
 export function userHomeApplication(id){
      return function(dispatch){
-		fetch(`/api/application/`+ id, {
+		fetch('/api/application/' + id, {
 		headers: {
             'content-type': 'application/json',
             'accept': 'application/json'
@@ -54,16 +54,14 @@ export function userApplications(){
         credentials: 'include'
 		}).then((response) => response.json())
 		.then((results) => {
-			dispatch({
-				type: types.USER_APPLICATIONS,
-				applications: results.applications
-			})
+			if(results != 401){
+				dispatch({
+					type: types.USER_APPLICATIONS,
+					applications: results.applications
+				})
+			}
 		});
 	}
-}
-
-export function createRecordForm(companyName, position, dateApplied, replied, nextEvent, notes, resumeSubmitted){
-	return { type: types.CREATE_RECORD, companyName, position, dateApplied, replied, nextEvent, notes, resumeSubmitted }
 }
 
 export function createNewRecord(creds){

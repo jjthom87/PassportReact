@@ -7,12 +7,8 @@ import routes from './routes';
 var store = require('./store/ConfigureStore').configure();
 import * as actions from './actions/indexes/User_Home_Index';
 
-store.dispatch(actions.userApplications());
-
-//load foundation
 $(document).foundation();
 
-//app css
 require('style!css!sass!applicationStyles')
 
 ReactDOM.render(

@@ -3,13 +3,8 @@ import { browserHistory } from 'react-router';
 
 import * as types from './../types/Authentication_Types';
 
-export function createAccountForm(name, username){
-	return { type: types.CREATE_USER, name, username }
-};
-
 export function createNewAccount(name, username, password, confirmPassword){
      return function(dispatch){
-		dispatch(createAccountForm(name,username,password,confirmPassword));
 		const newUser = {name, username, password, confirmPassword};
 		fetch('/api/users/create', {
 			method: 'post',
@@ -22,11 +17,19 @@ export function createNewAccount(name, username, password, confirmPassword){
 			try {
 				if(results.createdAt){
 					browserHistory.push('/login');
+					dispatch({
+						type: types.CREATE_USER,
+						createUser: results
+					})
 				} else if (results.name === "SequelizeUniqueConstraintError") {
 					throw 'Username already taken'
 				}
 			}
 			catch(err){
+				dispatch({
+					type: types.CREATE_USER_ERROR,
+					error: err
+				})
 				alert(err)
 			}
 		});
