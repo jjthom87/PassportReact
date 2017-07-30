@@ -1,5 +1,4 @@
 var models = require('../models');
-models.sequelize.sync();
 
 var modelController = {
 	userCreate: function(name, username, password, cb){
@@ -50,6 +49,29 @@ var modelController = {
 	      	cb(success);
 		}).catch(function(err){
 			 cb(err);
+		});
+  	},
+  	userApplications: function(id, cb){
+	    models.User.findOne({where: {id: id}}).then(function(user){
+	      user.getApplications({}).then(function(apps){
+	            var enteredApplications = [];
+	            apps.forEach(function(app){
+	                enteredApplications.push(app);
+	            });
+		        var data = {
+		            applications: enteredApplications
+		        }
+			    cb(data);
+			}).catch(function(err){
+				cb(err);
+			});
+		});
+  	},
+  	userApplication: function(id, cb){
+	    models.Application.findOne({where: {id: id}}).then(function(app){
+	        cb(app);
+		}).catch(function(err){
+			cb(err);
 		});
   	}
 }

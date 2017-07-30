@@ -1,4 +1,3 @@
-// DEPENDENCIES
 var express = require('express');
 var path = require('path');
 
@@ -114,27 +113,22 @@ router.get('/api/userhome', function(req, res){
 
 router.get('/api/applications', function(req,res){
   if(req.session.passport != undefined){
-    models.User.findOne({where: {id: req.user.id}}).then(function(user){
-      user.getApplications({}).then(function(apps){
-            var enteredApplications = [];
-            apps.forEach(function(app){
-                enteredApplications.push(app);
-            });
-          var data = {
-            applications: enteredApplications
-          }
+    modelController.userApplications(
+        req.user.id,
+        function(data){
           res.json(data);
-      })
-    })
-  } else {
-    res.json(401)
-  }
+      });
+    } else {
+      res.json(401)
+    }
 })
 
 router.get('/api/application/:id', function(req,res){
   if(req.session.passport != undefined){
-    models.Application.findOne({where: {id: req.params.id}}).then(function(app){
-        res.json(app);
+    modelController.userApplication(
+      req.params.id,
+      function(data){
+        res.json(data);
     });
   } else {
       res.json(401)
