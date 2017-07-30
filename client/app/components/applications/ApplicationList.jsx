@@ -9,7 +9,7 @@ class ApplicationList extends Component {
         this.props.userHomeData()
     }
     render() {
-        const { applications, user } = this.props;
+        const { applications } = this.props;
         if(applications){
             return (
                 <div>
@@ -44,7 +44,6 @@ const mapStateToProps = (state) => {
         apps = state.user.applications
     }
     return {
-        user: state.user.user,
         applications: apps
     };
 };
