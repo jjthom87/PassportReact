@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 import MainNavBar from './../navs/MainNavBar';
 import UserHomeHeader from './../headers/UserHomeHeader';
-import CreateRecordForm from './../app_forms/CreateRecordForm';
 import ApplicationList from './../applications/ApplicationList';
+import ShowHideForm from './../app_forms/ShowHideForm';
 
 export default class UserHomePage extends Component {
 	render() {
@@ -11,7 +11,7 @@ export default class UserHomePage extends Component {
       		<div>
       			<MainNavBar/>
       			<UserHomeHeader/>
-	      		<CreateRecordForm/>
+	      		<ShowHideForm/>
 	      		<ApplicationList/>
       		</div>
 		);

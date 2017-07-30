@@ -12,7 +12,7 @@ class UserHomeHeader extends Component {
 		if(user != undefined){
 			return (
 				<div>
-					<p>Welcome {this.props.user.name}</p>
+					<h3 id="userHomeHeader" className="page-title text-center">Welcome {user.name}</h3>
 				</div>
 			);
 		} else {

@@ -28,3 +28,12 @@ export var userApplicationReducer = (state = [], action) => {
 			return state;
 	}
 }
+
+export var formReducer = (state = false, action) => {
+	switch(action.type){
+		case types.SHOW_HIDE_FORM:
+			return !state;
+		default:
+			return state;
+	}
+}

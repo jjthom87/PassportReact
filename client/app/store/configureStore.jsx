@@ -8,7 +8,8 @@ export var configure = (initialState = {}) => {
 	var reducers = combineReducers({
 		auth: auth_reducers.authenticationReducer,
 		user: user_reducers.userHomeReducer,
-		applications: user_reducers.userApplicationReducer
+		applications: user_reducers.userApplicationReducer,
+		form: user_reducers.formReducer
 	});
 
 	const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);

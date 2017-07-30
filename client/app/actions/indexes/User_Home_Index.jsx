@@ -3,6 +3,12 @@ import { browserHistory } from 'react-router';
 
 import * as types from './../types/User_Home_Types';
 
+export var setShowHideForm  = () => {
+	return {
+		type: types.SHOW_HIDE_FORM
+	};
+};
+
 export function userHome(){
      return function(dispatch){
 		fetch('/api/userhome', {
