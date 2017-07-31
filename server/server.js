@@ -9,7 +9,6 @@ var models = require('./models');
 models.sequelize.sync();
 
 app.use(express.static('./client/public'));
-app.use(express.static('./client/app'));
 
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({ 

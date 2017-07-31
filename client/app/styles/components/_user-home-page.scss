@@ -3,5 +3,17 @@
 }
 
 #userHomeHeader {
-	color: blue;
+	display: inline-flex;
+}
+
+#userHomeHeaderText {
+	padding-right: 5px;
+}
+
+#userHomeHeaderImage {
+}
+
+.troll-picture {
+	height: 42px;
+	width: 42px;
 }

@@ -9,7 +9,8 @@ export var configure = (initialState = {}) => {
 		auth: auth_reducers.authenticationReducer,
 		user: user_reducers.userHomeReducer,
 		applications: user_reducers.userApplicationReducer,
-		form: user_reducers.formReducer
+		showHideForm: user_reducers.showHideFormReducer,
+		showHideApplications: user_reducers.showHideApplicationsReducer
 	});
 
 	const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);

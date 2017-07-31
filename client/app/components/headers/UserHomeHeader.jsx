@@ -11,8 +11,9 @@ class UserHomeHeader extends Component {
 		const { user } = this.props;
 		if(user != undefined){
 			return (
-				<div>
-					<h3 id="userHomeHeader" className="page-title text-center">Welcome {user.name}</h3>
+				<div id="userHomeHeader">
+					<h5 id="userHomeHeaderText" className="text-center">{user.name}</h5>
+					<img id="userHomeHeaderImage" src='./images/trollsm.png' className="troll-picture"/>
 				</div>
 			);
 		} else {

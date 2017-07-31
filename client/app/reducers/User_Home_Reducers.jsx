@@ -29,9 +29,18 @@ export var userApplicationReducer = (state = [], action) => {
 	}
 }
 
-export var formReducer = (state = false, action) => {
+export var showHideFormReducer = (state = false, action) => {
 	switch(action.type){
 		case types.SHOW_HIDE_FORM:
+			return !state;
+		default:
+			return state;
+	}
+}
+
+export var showHideApplicationsReducer = (state = false, action) => {
+	switch(action.type){
+		case types.SHOW_HIDE_APPLICATIONS:
 			return !state;
 		default:
 			return state;

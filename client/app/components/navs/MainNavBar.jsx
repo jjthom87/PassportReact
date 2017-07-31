@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
+
 import LogoutForm from './../user_forms/LogoutForm';
+import UserHomeHeader from './../headers/UserHomeHeader';
 
 export default class MainNavBar extends Component {
     render() {
@@ -11,7 +13,18 @@ export default class MainNavBar extends Component {
                     </ul>
                 </div>
                 <div className="top-bar-right">
-                    <LogoutForm/>
+                    <div className="grid-x">
+                        <div className="small-4 cell">
+                            <UserHomeHeader/>
+                        </div>
+                        <div className="small-3 cell">
+                        </div>
+                        <div className="small-4 cell">
+                            <LogoutForm/>
+                        </div>
+                        <div className="small-1 cell">
+                        </div>
+                    </div>
                 </div>
             </div>
         )

@@ -2,21 +2,21 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import * as actions from './../../actions/indexes/User_Home_Index';
-import CreateRecordForm from './../app_forms/CreateRecordForm';
+import ApplicationList from './ApplicationList';
 
-class ShowHideForm extends Component {
+class ShowHideApplications extends Component {
     render() {
 		const formShow = () => {
-			if(this.props.showForm){
+			if(this.props.showApplications){
 				return (
 					<div>
 						<div className="grid-x">
 						  	<div className="small-9 cell"></div>
   							<div className="small-3 cell">
-								<button type="button" className="button alert" onClick={() => {this.props.formViewing()}}>Hide Form</button>
+								<button type="button" className="button" onClick={() => {this.props.applicationsViewing()}}>Hide Applications</button>
 							</div>
 						</div>
-						<CreateRecordForm/>
+						<ApplicationList/>
 					</div>
 				)
 			} else {
@@ -25,7 +25,7 @@ class ShowHideForm extends Component {
 						<div className="grid-x">
 						  	<div className="small-9 cell"></div>
   							<div className="small-3 cell">
-								<button type="button" className="button success" onClick={() => {this.props.formViewing()}}>Show Form</button>
+								<button type="button" className="button" onClick={() => {this.props.applicationsViewing()}}>Show Applications</button>
 							</div>
 						</div>
 					</div>
@@ -42,14 +42,14 @@ class ShowHideForm extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        showForm: state.showHideForm
+        showApplications: state.showHideApplications
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        formViewing: () => dispatch(actions.setShowHideForm())
+        applicationsViewing: () => dispatch(actions.setShowHideApplications())
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ShowHideForm);
+export default connect(mapStateToProps, mapDispatchToProps)(ShowHideApplications);
