@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import * as actions from '../../actions/indexes/Authentication_Index';
 
-export var CreateAccountForm = React.createClass({
-	onCreateUser: function(e){
+class CreateAccountForm extends Component {
+	onCreateUser(e){
 		e.preventDefault();
 
 		var name = this.refs.name.value;
@@ -54,14 +54,14 @@ export var CreateAccountForm = React.createClass({
 			alert("Passwords don't match");
 		}
 		dispatch(actions.createNewAccount(name, username, password, confirmPassword));
-	},
-	render: function() {
+	}
+	render() {
 		return (
 			<div className="grid-x">
 				<div className="small-4 cell">
 				</div>
 				<div className="small-4 cell">
-					<form onSubmit={this.onCreateUser}>
+					<form onSubmit={this.onCreateUser.bind(this)}>
 							<label>
 								Name/Nickname
 								<input type="text" ref="name" placeholder="Enter Name/Nickname"/>
@@ -88,6 +88,6 @@ export var CreateAccountForm = React.createClass({
 			</div>
 		);
 	}
-});
+};
 
 export default connect()(CreateAccountForm);

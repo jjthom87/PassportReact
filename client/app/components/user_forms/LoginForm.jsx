@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import * as actions from '../../actions/indexes/Authentication_Index';
 
-export var LoginForm = React.createClass({
-	onLoginSubmit: function(e){
+class LoginForm extends Component {
+	onLoginSubmit(e){
 		e.preventDefault();
 
 		var creds = {};
@@ -23,14 +23,14 @@ export var LoginForm = React.createClass({
 		}
 
 		dispatch(actions.loginUser(username, password));
-	},
-	render: function() {
+	}
+	render() {
 		return (
 			<div className="grid-x">
 				<div className="small-4 cell">
 				</div>
 				<div className="small-4 cell">
-					<form onSubmit={this.onLoginSubmit}>
+					<form onSubmit={this.onLoginSubmit.bind(this)}>
 						<label> 
 							Login
 							<input type="text" ref="username" placeholder="Enter Username"/>
@@ -49,6 +49,6 @@ export var LoginForm = React.createClass({
 			</div>
 		);
 	}
-})
+};
 
 export default connect()(LoginForm);
