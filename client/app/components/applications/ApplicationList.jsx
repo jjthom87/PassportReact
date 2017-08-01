@@ -37,14 +37,8 @@ class ApplicationList extends Component {
 };
 
 const mapStateToProps = (state) => {
-    let apps;
-    if(state.applications.length > 0){
-        apps = state.user.applications.concat(state.applications)
-    } else {
-        apps = state.user.applications
-    }
     return {
-        applications: apps
+        applications: state.user.applications
     };
 };
 

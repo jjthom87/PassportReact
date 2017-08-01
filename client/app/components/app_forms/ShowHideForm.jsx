@@ -42,7 +42,7 @@ class ShowHideForm extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        showForm: state.showHideForm
+        showForm: state.user.showForm
     };
 };
 

@@ -42,7 +42,7 @@ class ShowHideApplications extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        showApplications: state.showHideApplications
+        showApplications: state.user.showApplications
     };
 };
 

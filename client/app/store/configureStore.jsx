@@ -7,10 +7,7 @@ import * as user_reducers from './../reducers/User_Home_Reducers';
 export var configure = (initialState = {}) => {
 	var reducers = combineReducers({
 		auth: auth_reducers.authenticationReducer,
-		user: user_reducers.userHomeReducer,
-		applications: user_reducers.userApplicationReducer,
-		showHideForm: user_reducers.showHideFormReducer,
-		showHideApplications: user_reducers.showHideApplicationsReducer
+		user: user_reducers.userHomeReducer
 	});
 
 	const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);

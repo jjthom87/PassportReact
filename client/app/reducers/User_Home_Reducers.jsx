@@ -1,47 +1,26 @@
 import * as types from './../actions/types/User_Home_Types';
 import * as auth_types from './../actions/types/Authentication_Types';
 
-export var userHomeReducer = (state = {}, action) => {
+const initialState = {
+	applications: [],
+	showForm: false,
+	showApplications: false
+}
+
+export var userHomeReducer = (state = initialState, action) => {
 	switch(action.type){
 		case types.USER_HOME:
 			return { ...state, user: action.user, applications: action.applications }
 		case types.USER_APPLICATION:
 			return { ...state, application: action.application }
-		default:
-			return state;
-	}
-}
-
-export var userApplicationReducer = (state = [], action) => {
-	switch(action.type){
-		case types.USER_APPLICATIONS:
-			return [
-			...state,
-			...action.applications
-			]
 		case types.UPDATE_USER_DATA:
-			return [
-			...state,
-			action.createdApplication
-			];
-		default:
-			return state;
-	}
-}
-
-export var showHideFormReducer = (state = false, action) => {
-	switch(action.type){
-		case types.SHOW_HIDE_FORM:
-			return !state;
-		default:
-			return state;
-	}
-}
-
-export var showHideApplicationsReducer = (state = false, action) => {
-	switch(action.type){
+            return Object.assign({}, state, {
+                applications: state.applications.concat(action.createdApplication)
+            });
 		case types.SHOW_HIDE_APPLICATIONS:
-			return !state;
+			return { ...state, showApplications: !state.showApplications }
+		case types.SHOW_HIDE_FORM:
+			return { ...state, showForm: !state.showForm }
 		default:
 			return state;
 	}
